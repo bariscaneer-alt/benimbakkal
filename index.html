@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayel Müzik 37 & Bakkal - Profesyonel POS ve Otomasyon</title>
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase SDK (Modüler V10 Sürümü) -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+      // Sizin Firebase yapılandırmanız
+      const firebaseConfig = {
+        apiKey: "AIzaSyDBAwdLskhxL1eFKpb9zsSdbxLpxF4TPUU",
+        authDomain: "benimbakkal-bc82e.firebaseapp.com",
+        projectId: "benimbakkal-bc82e",
+        storageBucket: "benimbakkal-bc82e.firebasestorage.app",
+        messagingSenderId: "536098802815",
+        appId: "1:536098802815:web:6f7ea69411743a10db034a",
+        measurementId: "G-0BZV1YHYKR"
+      };
+
+      // Firebase'i Başlatma
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Diğer script dosyalarınızın (app.js) erişebilmesi için global nesneye ekliyoruz
+      window.db = db;
+      window.collection = collection;
+      window.addDoc = addDoc;
+      window.getDocs = getDocs;
+      window.doc = doc;
+      window.setDoc = setDoc;
+      window.updateDoc = updateDoc;
+      window.deleteDoc = deleteDoc;
+      window.onSnapshot = onSnapshot;
+
+      console.log("Firebase başarıyla bağlandı! 🚀");
+    </script>
+
     <!-- jsPDF ve SheetJS (Excel) Kütüphaneleri -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -562,8 +594,7 @@
 
     <footer><span id="footerBrand">Hayel Müzik 37 & Bakkal</span> © 2026</footer>
 
-    <!-- Harici JS Dosyaları -->
-    <script src="config.js"></script>
+    <!-- Ana JS Dosyası -->
     <script src="app.js"></script>
 </body>
 </html>
