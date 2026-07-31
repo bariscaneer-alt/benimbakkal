@@ -1,5 +1,5 @@
 let appConfig = { 
-    businessName: "Hayel Müzik 37 & Bakkal", 
+    businessName: "Bakkal Adisyon", 
     adminPass: "1234", 
     cashierPass: "5678",
     iban: "TR33 0006 1005 2198 6742 3300 01"
